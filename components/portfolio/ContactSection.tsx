@@ -54,7 +54,8 @@ export function ContactSection() {
                 <span className="eyebrow">Elsewhere</span>
                 <ul className="mt-4 space-y-3 text-sm">
                   <li className="flex items-center gap-3 text-foreground/80">
-                    <Mail className="h-4 w-4 text-primary" /> hello@lima.dev
+                    <Mail className="h-4 w-4 text-primary" />{" "}
+                    jianrobiul7898@gmail.com
                   </li>
                   <li className="flex items-center gap-3 text-foreground/80">
                     <MapPin className="h-4 w-4 text-primary" /> Dhaka,

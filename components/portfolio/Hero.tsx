@@ -3,7 +3,12 @@ import { useEffect, useState } from "react";
 import { ArrowRight, Download } from "lucide-react";
 import { StampBadge } from "./StampBadge";
 
-const roles = ["Frontend Developer", "CS Student", "UI Tinkerer", "Field-Note Designer"];
+const roles = [
+  "full stack applications",
+  "scalable web experiences",
+  "clean user interfaces",
+  "thoughtful digital products",
+];
 
 function useTypewriter(words: string[]) {
   const [i, setI] = useState(0);
@@ -16,7 +21,8 @@ function useTypewriter(words: string[]) {
     const t = setTimeout(() => {
       if (!deleting) {
         setText(word.slice(0, text.length + 1));
-        if (text.length + 1 === word.length) setTimeout(() => setDeleting(true), 1400);
+        if (text.length + 1 === word.length)
+          setTimeout(() => setDeleting(true), 1400);
       } else {
         setText(word.slice(0, text.length - 1));
         if (text.length - 1 === 0) {
@@ -34,7 +40,10 @@ function useTypewriter(words: string[]) {
 export function Hero() {
   const typed = useTypewriter(roles);
   return (
-    <section id="top" className="relative flex min-h-screen items-center overflow-hidden pt-24">
+    <section
+      id="top"
+      className="relative flex min-h-screen items-center overflow-hidden pt-24"
+    >
       <div className="paper-grain pointer-events-none absolute inset-0 opacity-40" />
       <div className="mx-auto grid w-full max-w-6xl grid-cols-1 gap-14 px-6 md:grid-cols-[1.4fr_1fr] md:items-center">
         <div>
@@ -49,20 +58,28 @@ export function Hero() {
               I build{" "}
               <span className="text-secondary">
                 {typed}
-                <span className="ml-0.5 inline-block h-[0.9em] w-[2px] translate-y-1 bg-primary" />
+                <span className="ml-0.5 inline-block h-[0.9em] w-0.5 translate-y-1 bg-primary" />
               </span>
             </span>
           </h1>
           <p className="mt-8 max-w-xl text-base leading-relaxed text-muted-foreground md:text-lg">
-            Computer Science student at UITS, learning the craft one interface at a time.
-            I care about details, calm typography, and code that feels handwritten.
+            Computer Science student at UITS, learning the craft one interface
+            at a time. I care about details, calm typography, and code that
+            feels handwritten.
           </p>
           <div className="mt-10 flex flex-wrap items-center gap-4">
-            <a href="#projects" className="group inline-flex items-center gap-2 border border-primary bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground transition-transform hover:-translate-y-0.5">
+            <a
+              href="#projects"
+              className="group inline-flex items-center gap-2 border border-primary bg-primary px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-primary-foreground transition-transform hover:-translate-y-0.5"
+            >
               See the work
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
-            <a href="#contact" className="inline-flex items-center gap-2 border border-border px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-foreground transition-colors hover:border-primary hover:text-primary">
+            <a
+              href="/Lima_Akter_Badhon_CV.pdf"
+              download="Lima_Resume.pdf"
+              className="inline-flex items-center gap-2 border border-border px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-foreground transition-colors hover:border-primary hover:text-primary"
+            >
               <Download className="h-4 w-4" />
               Resume
             </a>
@@ -77,23 +94,29 @@ export function Hero() {
             ].map(([v, l]) => (
               <div key={l}>
                 <dt className="font-display text-3xl text-primary">{v}</dt>
-                <dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">{l}</dd>
+                <dd className="mt-1 text-xs uppercase tracking-[0.2em] text-muted-foreground">
+                  {l}
+                </dd>
               </div>
             ))}
           </dl>
         </div>
         <div className="relative mx-auto w-full max-w-sm">
           <div className="absolute -inset-3 border border-dashed border-primary/40" />
-          <div className="relative aspect-[4/5] border-2 border-primary bg-card p-3">
-            <div className="grid h-full place-items-center bg-muted/40">
-              <span className="font-display text-[10rem] italic text-primary/70">L</span>
-            </div>
+          <div className="relative aspect-4/5 border-2 border-primary bg-card px-3 pt-3">
+            <img
+              src="/profile.png"
+              alt=""
+              className="block max-h-full max-w-full object-contain mx-auto translate-x-4 "
+            />
             <div className="pointer-events-none absolute -bottom-4 -right-4">
-              <StampBadge tone="secondary" rotate={8}>Est. 2003</StampBadge>
+              <StampBadge tone="secondary" rotate={8}>
+                Est. 2003
+              </StampBadge>
             </div>
           </div>
           <div className="mt-4 text-center">
-            <span className="eyebrow">Portrait &mdash; pending scan</span>
+            <span className="eyebrow">Portrait</span>
           </div>
         </div>
       </div>

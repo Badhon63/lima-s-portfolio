@@ -15,13 +15,13 @@ const inter = Inter({
 });
 
 export const metadata: Metadata = {
-  title: "Lima — Frontend Developer & CS Student",
+  title: "Lima — Full-Stack Developer & CS Student",
   description:
-    "Portfolio of Lima — a Computer Science student and frontend developer crafting warm, editorial interfaces.",
+    "Portfolio of Lima — a Computer Science student and full-stack developer crafting warm, editorial interfaces.",
   openGraph: {
-    title: "Lima — Frontend Developer & CS Student",
+    title: "Lima — Full-Stack Developer & CS Student",
     description:
-      "A field-note style portfolio: projects, skills, and studies from an aspiring frontend developer.",
+      "A field-note style portfolio: projects, skills, and studies from an aspiring full-stack developer.",
     type: "website",
   },
   twitter: { card: "summary_large_image" },
