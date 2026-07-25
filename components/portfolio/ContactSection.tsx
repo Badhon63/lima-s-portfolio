@@ -8,28 +8,41 @@ import { SectionHeader } from "./SectionHeader";
 export function ContactSection() {
   const [sending, setSending] = useState(false);
 
-  const onSubmit = (e: FormEvent<HTMLFormElement>) => {
+  const onSubmit = async (e: FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setSending(true);
 
     const formData = new FormData(e.currentTarget);
     const user = Object.fromEntries(formData.entries());
 
-    console.log(user);
+    try {
+      setSending(true);
 
-    const req = fetch("http://localhost:5000/contact", {
-      method: "POST",
-      headers: { "content-type": "application/json" },
-      body: JSON.stringify(user),
-    });
-
-    setTimeout(() => {
-      setSending(false);
-      toast.success("Message drafted", {
-        description: "Email wiring is pending — for now, reach me directly.",
+      const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL}/contact`, {
+        method: "POST",
+        headers: {
+          "Content-Type": "application/json",
+        },
+        body: JSON.stringify(user),
       });
+
+      if (!res.ok) {
+        throw new Error("Failed to send message.");
+      }
+
+      toast.success("Message sent!", {
+        description:
+          "Thanks for reaching out. I'll get back to you as soon as I can.",
+      });
+
       (e.target as HTMLFormElement).reset();
-    }, 700);
+    } catch (error) {
+      toast.error("Couldn't send message", {
+        description: "Something went wrong. Please try again in a moment.",
+      });
+    } finally {
+      setSending(false);
+    }
   };
 
   return (
