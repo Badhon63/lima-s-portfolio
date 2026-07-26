@@ -76,7 +76,7 @@ export function Hero() {
               <ArrowRight className="h-4 w-4 transition-transform group-hover:translate-x-1" />
             </a>
             <a
-              href="/Lima_Akter_Badhon_CV.pdf"
+              href="/Lima_Resume.pdf"
               download="Lima_Resume.pdf"
               className="inline-flex items-center gap-2 border border-border px-6 py-3 text-xs font-semibold uppercase tracking-[0.25em] text-foreground transition-colors hover:border-primary hover:text-primary"
             >
